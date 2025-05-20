@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <title>Home</title>
+  <style>
+    body {
+      font-family: "Audiowide", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #01031f;
+      color: #fff;
+    }
+
+    #container {
+      background-color: #01031f;
+      padding: 10px;
+      border-bottom: 3px solid #c19100;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .icona {
+      width: 100%;
+      max-height: 450px;
+      object-fit: contain;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    }
+
+  /* CSS NAV BAR */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #c19100;
+            border-radius: 10px;
+            margin-top: 10px;
+            padding: 10px;
+            position: relative;
+        }
+
+        nav a {
+            color: #01031f;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #c19100;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #970000;
+            color: #fff;
+        }
+
+        /* Finestra dei link del menu a discesa */
+        nav .finestra {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav .finestrafine {
+            display: none;
+            position: absolute;
+            background-color: #01031f;
+            min-width: 160px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        nav .finestrafine a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        nav .finestrafine a:hover {
+            background-color: #970000;
+            padding: 10px;
+        }
+
+        nav .finestra:hover .finestrafine {
+            display: block;
+        }
+
+        /* Login posizionato a destra */
+        nav .login-container {
+            position: absolute;
+            right: 20px;
+        }
+
+        nav #login-link {
+            color: #00f;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav #login-link:hover {
+            color: #ff0;
+        }
+/* STILE FORM DI LOGIN */
+        #login-form {
+            background-color: #c19100;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            margin: 30px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        #login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #01031f;
+        }
+
+        #login-form button {
+            background-color: #970000;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+
+        #login-form button:hover {
+            background-color: #c19100;
+            color: #01031f;
+        }
+        /* BREADCRUMBS */
+        .breadcrumbs {
+            font-size: 16px;
+            background-color: #01031f;
+            padding: 10px;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .breadcrumbs a {
+            color: #c19100;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs span {
+            color: #fff;
+        }
+
+        .breadcrumbs a::after {
+            content: " >";
+            color: white;
+        }
+
+        .breadcrumbs a:last-child::after {
+            content: "";
+        }
+    .finestra {
+      position: relative;
+      display: inline-block;
+    }
+
+    .finestrafine {
+      display: none;
+      position: absolute;
+      background-color: #01031f;
+      min-width: 160px;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .finestrafine a {
+      color: #fff;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .finestrafine a:hover {
+      background-color: #970000;
+    }
+
+    .finestra:hover .finestrafine {
+      display: block;
+    }
+
+    #autori {
+      background-color: #c19100;
+      color: #01031f;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      font-family: "Audiowide", sans-serif;
+      transition: background-color 0.3s;
+    }
+
+    #autori:hover {
+      background-color: #970000;
+      color: #01031f;
+    }
+
+    /* Stili per l'immagine principale */
+    #Megazzi {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border: 2px solid #c19100;
+      box-shadow: 0 0 6px #c19100;
+      transition: transform 0.4s;
+      border-left: 5px solid #c19100;
+    }
+
+    /* Stili per l'immagine dello scroll */
+    #star {
+      width: 100%;
+      max-width: 300px; /* Immagine più piccola */
+      height: auto;
+      object-fit: contain;
+      border: 2px solid #c19100;
+      box-shadow: 0 0 6px #c19100;
+      transition: transform 0.4s;
+      border-left: 5px solid #c19100;
+      margin: 0 auto;
+      display: block; /* Centrare l'immagine */
+    }
+
+    h1 {
+      color: #c19100;
+      text-align: center;
+      font-size: 45px;
+      margin: 30px 20px;
+      text-shadow: 2px 2px #000;
+    }
+
+    h3 {
+      color: #c19100;
+      text-align: center;
+      font-size: 20px;
+      text-shadow: 2px 2px #000;
+    }
+    .project-info, #magg{
+      flex: 1.5;
+  margin: 0 auto 0;
+ font-size: 12px;
+  height: 250px;
+  max-width: 230px;
+  padding: auto;
+}
+      
+    .info-box, .project-info {
+      background-color: #c19100;
+      color: #01031f;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+      text-align: left;
+    }
+
+    .info-box h2, .project-info h2 {
+      color: #01031f;
+      margin-bottom: 10px;
+    }
+
+    .info-box span {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+
+    .item .info {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .scroll-box {
+      flex: 0 0 350px;
+      margin-left: 20px;
+    }
+
+    .scroll-box {
+      height: 400px;
+      overflow-y: auto;
+      background-color:#9777; /* Rosso opaco */
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    .cuoricini-container {
+      margin: 15px 0;
+      color: #970000;
+      font-size: 24px;
+    }
+
+    .botton {
+      background-color: #c19100;
+      color: #01031f;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 12px;
+      border: 2px solid #01031f;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+      text-decoration: none;
+    }
+
+    .botton:hover {
+      background-color: #970000;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #1d1d1d;
+      color: white;
+      padding: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer-TUTTO {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-LINKS a {
+      color: blue;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    .footer-LINKS a:hover {
+      background-color: rgba(60, 60, 80, 0.7);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .cercasito input {
+      padding: 2px 10px;
+      font-size: 16px;
+      width: 200px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="container">
+      <img src="immagini/icona.jpg" alt="Icona Rat-Man" class="icona">
+    </div>
+    
+  </header><nav>
+     <a href="index.html">HOME</a>
+        <a href="catalogo.html">CATALOGO</a>
+        <div class="finestra">
+            <a href="autori.html" id="autori">AUTORI</a>
+            <div class="finestrafine">
+                <a href="autori.html">Creatore</a>
+                <a href="illustratore.html">Illustratore</a>
+                <a href="editore.html">Editore</a>
+            </div>
+        </div>
+        <!-- LOGIN -->
+        <div class="login-container">
+            <a href="login.html" id="login-link">LOGIN</a>
+        </div>
+    </nav><!-- FINE NAV BAR -->
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumbs">
+        <a href="home.html">Home</a> &gt;
+        <a href="catalogo.html">Catalogo</a> &gt;
+        <a href="autori.html">Autori</a> &gt;
+        <a href="login.html">Login</a>
+    </div><!-- FINE BREADCRUMBS -->
+
+  <h1>Benvenuti nel mondo delle Parodie di Rat-Man!</h1>
+
+  <div class="item">
+    <div class="info">
+      <img src="immagini/star rats 1999.jpg" alt="Immagine Magazzi" id="Megazzi">
+      <div class="info-box">
+        <h2><strong>Descrizione</strong></h2>
+        <p>Finalmente è uscita l’attesa Star Rats, una storia ambientata nel magico mondo di Star Wars. Motivi per leggere l’albo ce n’è a bizzeffe e il divertimento maggiore sta nello scoprirli, ma due cose vorremmo segnalare. Leggete il frontespizio (“Una volta, in questa galassia, era tutta campagna”) e seguite le istruzioni a fondo pagina...</p>
+      </div>
+      <div class="info-box">
+        <h2><strong>Trama</strong></h2>
+        <p>Sul pianeta Desertia vive un giovane di nome Granello, allevato da Aldo Uan Kebaldo in seguito alla scomparsa dei genitori...</p>
+      </div>
+    </div>
+
+    <!-- Maggiori informazioni -->
+    <div class="project-info" id="magg">
+      <h2><strong>Maggiori Informazioni</strong></h2>
+      <p><strong>Autori</strong>: Leo Ortolani</p>
+      <p><strong>Data di uscita</strong>: 10 ott 1999</p>
+      <p><strong>Paesi</strong>: Italia</p>
+      <p><strong>Tipo prodotto</strong>: Fumetti</p>
+      <p><strong>Pagine</strong>: 160</p>
+      <p><strong>Formato</strong>: 20X28.9</p>
+      <p><strong>Rilegatura</strong>: Cartonato</p>
+      <p><strong>Interni</strong>: Colori</p>
+      <p><strong>Genere</strong>: Parodia, avventura, divertente</p>
+    </div>
+
+    <!-- Sezione Ti potrebbe interessare anche -->
+    <div class="scroll-box">
+      <h3>Ti potrebbe interessare anche:</h3>
+      <div class="item">
+        <img src="immagini/episodio 2.jpg" alt="Immagine Star Rats" id="star">
+        <div class="info-box">
+          <h2>Descrizione</h2>
+          <p>Venghino, siòri e siòre, perché qui si raccontano le strafavolose avventure del Grande Oler Magazzi...</p>
+          <h2>Maggiori Informazioni</h2>
+          <p><strong>Autori</strong>: Leo Ortolani</p>
+          <p><strong>Data di uscita</strong>: 14 nov 2014</p>
+          <p><strong>Tipo prodotto</strong>: Fumetti</p>
+          <p><strong>Pagine</strong>: 160</p>
+          <p><strong>Formato</strong>: 20X28.9</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="immagini/StarRatsIII.jpg" alt="Immagine Star Rats" id="star">
+        <div class="info-box">
+          <h2>Descrizione</h2>
+          <p>Venghino, siòri e siòre, perché qui si raccontano le strafavolose avventure del Grande Oler Magazzi...</p>
+          <h2>Maggiori Informazioni</h2>
+          <p><strong>Autori</strong>: Leo Ortolani</p>
+          <p><strong>Data di uscita</strong>: 5 dic 2015</p>
+          <p><strong>Tipo prodotto</strong>: Fumetti</p>
+          <p><strong>Pagine</strong>: 160</p>
+          <p><strong>Formato</strong>: 20X28.9</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-TUTTO">
+      <p class="UNO">
+        Tutti i diritti sui contenuti di questo sito (nomi, immagini, testi ed altro) sono di proprietà dei rispettivi autori e/o case editrici, sotto la tutela delle leggi internazionali sul copyright/trademark.
+      </p>
+      <p class="DUE">
+        Questo progetto è totalmente privo di scopi di lucro da parte dell'autore. Lo scopo è puramente amatoriale e perciò non è assolutamente affiliato o dipendente da alcun editore.
+      </p>
+      <div class="footer-LINKS">
+        <a href="#credits" class="footer-link">Credits</a>
+        <a href="web-project-plan.html" class="footer-link">Web Project Plan</a>
+        <a href="#info" class="footer-link">Informazioni</a>
+      </div>
+      <div class="cercasito">
+        <input type="text" placeholder="Cerca nel sito" id="search">
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
